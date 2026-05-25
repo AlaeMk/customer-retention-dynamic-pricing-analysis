@@ -7,9 +7,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, classification_report
 
-# =========================================================================
 # ----- WEEK 1: DATA PREPROCESSING -----
-# =========================================================================
 print("--- Starting Week 1: Data Preprocessing ---")
 
 # 1. Loading the Excel file 
@@ -36,10 +34,8 @@ os.makedirs(os.path.dirname(output_path), exist_ok=True)
 df.to_csv(output_path, index=False)
 print(f"Cleaned dataset saved at: {output_path}\n")
 
-
-# =========================================================================
 # ----- WEEK 2: EXPLORATORY DATA ANALYSIS (EDA) -----
-# =========================================================================
+
 print("--- Starting Week 2: Exploratory Data Analysis ---")
 
 # 1. Select numeric variables to find correlations with cancellations (is_canceled)
@@ -62,10 +58,8 @@ os.makedirs(os.path.dirname(plot_path), exist_ok=True)
 plt.savefig(plot_path)
 print(f"Week 2 Visualization generated and saved at: {plot_path}\n")
 
-
-# =========================================================================
 # ----- WEEK 3: BASELINE PREDICTIVE MODELING (Scikit-Learn) -----
-# =========================================================================
+
 print("--- Starting Week 3: Baseline Predictive Modeling ---")
 
 # 1. Selecting numerical features
@@ -102,21 +96,17 @@ print("\nDetailed Performance Metrics:")
 print(classification_report(y_test, y_pred))
 print("===================================================\n")
 
-# -------------------------------------------------------------------------
-# 🌟 [الزيادة الجديدة]: حفظ بيانات الـ Machine Learning في CSV للـ Dashboard
-# -------------------------------------------------------------------------
 print("--- Saving ML Predictions for Power BI ---")
 
 # n-sn3ou DataFrame jdid fih l-klyonat mta3 l-imti7an (X_test)
 df_predictions = X_test.copy()
 
-# n-zydou el-column mta3 el-79i9a (Actual Churn)
+# column(Actual Churn)
 df_predictions['Actual_Is_Canceled'] = y_test
 
-# n-zydou el-column mta3 t-wa99o3at el-Model (Predicted Churn)
+# column (Predicted Churn)
 df_predictions['Predicted_Is_Canceled'] = y_pred
 
-# n-sayvohom fi folder esmou week3
 ml_output_path = r"C:\Users\alaem\Downloads\churn-hotel-infotact\clean_data\week3\week3_model_predictions.csv"
 os.makedirs(os.path.dirname(ml_output_path), exist_ok=True)
 df_predictions.to_csv(ml_output_path, index=False)
@@ -124,8 +114,8 @@ df_predictions.to_csv(ml_output_path, index=False)
 print(f"ML Predictions successfully saved at: {ml_output_path}")
 print("Project Pipeline Executed Successfully from Week 1 to Week 3!\n")
 
-# =========================================================================
+
 # ----- DISPLAY ALL VISUALIZATIONS AT THE VERY END -----
-# =========================================================================
+
 print("Opening the visualization window...")
 plt.show()
