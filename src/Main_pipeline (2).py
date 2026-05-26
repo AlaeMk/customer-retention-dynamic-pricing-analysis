@@ -7,9 +7,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, classification_report, roc_curve, roc_auc_score
 
-# =========================================================================
 # ----- WEEK 1: DATA PREPROCESSING -----
-# =========================================================================
+
 print("--- Starting Week 1: Data Preprocessing ---")
 
 # 1. Loading the Excel file 
@@ -36,10 +35,8 @@ os.makedirs(os.path.dirname(output_path), exist_ok=True)
 df.to_csv(output_path, index=False)
 print(f"Cleaned dataset saved at: {output_path}\n")
 
-
-# =========================================================================
 # ----- WEEK 2: EXPLORATORY DATA ANALYSIS (EDA) -----
-# =========================================================================
+
 print("--- Starting Week 2: Exploratory Data Analysis ---")
 
 # 1. Select numeric variables to find correlations with cancellations (is_canceled)
@@ -62,10 +59,8 @@ os.makedirs(os.path.dirname(plot_path), exist_ok=True)
 plt.savefig(plot_path)
 print(f"Week 2 Visualization generated and saved at: {plot_path}\n")
 
-
-# =========================================================================
 # ----- WEEK 3: BASELINE PREDICTIVE MODELING (Scikit-Learn) -----
-# =========================================================================
+
 print("--- Starting Week 3: Baseline Predictive Modeling ---")
 
 # 1. Selecting numerical features
@@ -125,9 +120,6 @@ plt.savefig(roc_plot_path)
 print(f"ROC-AUC Plot generated and saved at: {roc_plot_path}")
 print("===================================================\n")
 
-# -------------------------------------------------------------------------
-# 🌟 [الزيادة الجديدة]: حفظ بيانات الـ Machine Learning في CSV للـ Dashboard
-# -------------------------------------------------------------------------
 print("--- Saving ML Predictions for Power BI ---")
 
 # n-sn3ou DataFrame jdid fih l-klyonat mta3 l-imti7an (X_test)
