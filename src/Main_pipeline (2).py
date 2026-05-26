@@ -122,17 +122,17 @@ print("===================================================\n")
 
 print("--- Saving ML Predictions for Power BI ---")
 
-# n-sn3ou DataFrame jdid fih l-klyonat mta3 l-imti7an (X_test)
+#  DataFrame (X_test)
 df_predictions = X_test.copy()
 df_predictions['Churn_Probability'] = y_pred_proba
 
-# n-zydou el-column mta3 el-79i9a (Actual Churn)
+# column  (Actual Churn)
 df_predictions['Actual_Is_Canceled'] = y_test
 
-# n-zydou el-column mta3 t-wa99o3at el-Model (Predicted Churn)
+# column Model (Predicted Churn)
 df_predictions['Predicted_Is_Canceled'] = y_pred
 
-# n-sayvohom fi folder esmou week3
+#folder  week3
 ml_output_path = r"C:\Users\alaem\Downloads\churn-hotel-infotact\clean_data\week3\week3_model_predictions.csv"
 os.makedirs(os.path.dirname(ml_output_path), exist_ok=True)
 df_predictions.to_csv(ml_output_path, index=False)
@@ -140,8 +140,8 @@ df_predictions.to_csv(ml_output_path, index=False)
 print(f"ML Predictions successfully saved at: {ml_output_path}")
 print("Project Pipeline Executed Successfully from Week 1 to Week 3!\n")
 
-# =========================================================================
-# ----- DISPLAY ALL VISUALIZATIONS AT THE VERY END -----
-# =========================================================================
+
+# ----- DISPLAY ALL VISUALIZATIONS  -----
+
 print("Opening the visualization window...")
 plt.show()
