@@ -19,6 +19,36 @@
 This project addresses a critical bottleneck in the hospitality industry: **revenue leakage due to late cancellations and unoptimized room pricing**. By integrating a robust data pipeline with machine learning, this solution identifies churn drivers and provides actionable pricing strategies.
 
 ---
+## 📂 Repository Structure
+
+```
+customer-retention-dynamic-pricing-analysis/
+├── README.md
+├── .gitignore
+│
+├── src/
+│   ├── Hotel_churn_Pipeline.ipynb + Documentation
+│   ├── Main_pipeline.py
+│
+├── raw/
+    └── hotel_bookings.xlsx
+│
+├── clean_data/
+│   ├── week1/
+    │   └── cleaned_hotel_bookings.xlsx
+│   ├── week2/
+│   │   └── cancellation_correlation_matrix.png
+│   └── week3/
+        ├── week3_model_predictions_final.xlsx
+        └── roc_auc_curve.png
+│
+└── Dashboad/
+    └── views/
+        ├── overview.png
+        ├── predictive Analytics.png
+        ├── prescripive Actions.png
+        └── hotel-churn-dash-infotact.pbix
+```
 
 ### 1️⃣ Executive Summary (Overview)
 *Target Audience: Hotel Directors & Revenue Managers*
@@ -108,7 +138,20 @@ These insights guided feature engineering and predictive modeling.
 ##  Week 3: Predictive Modeling (Customer Churn)
 
 A classification model using **Scikit-Learn** was developed to predict high-risk cancellations immediately after reservation creation.
+### Core ML Pipeline
+```python
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import roc_auc_score
 
+# Initialize & Train
+model = LogisticRegression(max_iter=1000)
+model.fit(X_train, y_train)
+
+# Evaluation
+y_pred_proba = model.predict_proba(X_test)[:, 1]
+roc_auc = roc_auc_score(y_test, y_pred_proba)
+print(f"Model ROC-AUC Score: {roc_auc:.2%}")
+```
 ### 📌 ROC-AUC Curve
 
 ![ROC AUC](clean_data/week3/roc_auc_curve.png)
@@ -174,34 +217,6 @@ Revenue managers can:
 without increasing operational risk.
 
 ---
-
-## 📂 Repository Structure
-
-```
-customer-retention-dynamic-pricing-analysis/
-├── README.md
-├── .gitignore
-│
-├── src/
-│   ├── 01_data_cleaning.ipynb
-│   ├── 02_eda_and_stats.ipynb
-│   └── 03_predictive_modeling.ipynb
-│
-├── raw/
-│
-├── clean_data/
-│   ├── week1/
-│   ├── week2/
-│   │   └── cancellation_correlation_matrix.png
-│   └── week3/
-│       └── roc_auc_curve.png
-│
-└── Dashboad/
-    └── views/
-        ├── overview.png
-        ├── predictive Analytics.png
-        └── prescripive Actions.png
-```
 
 
 
