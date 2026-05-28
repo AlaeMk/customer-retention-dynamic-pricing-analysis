@@ -25,13 +25,14 @@ This project addresses revenue leakage in the hospitality sector. By analyzing h
 
 ```text
 customer-retention-dynamic-pricing-analysis/
-├── README.md                # Project overview & documentation
-├── .gitignore               # Excludes raw data & environment files
-├── notebooks/
-│   └── 01_eda_and_churn.ipynb # EDA, Churn analysis & predictive baselines
-├── sql/
-│   └── analytics_queries.sql  # SQL aggregations for KPIs
-├── dashboard/
-│   └── hotel_dashboard.pbix   # Interactive Power BI Dashboard
-└── src/
-    └── main_pipeline.py       # Data processing pipeline
+customer-retention-dynamic-pricing-analysis/
+├── Dashboard/
+│   ├── view/               # Contains 3 dashboard images
+│   └── dashboard.pbix      # Interactive Power BI file
+├── clean_data/
+│   ├── week1/              # Cleaned datasets
+│   ├── week2/              # Cancellation correlation matrix (.png)
+│   └── week3/              # Predictive model results (as seen in image_cc5ba1.png)
+├── raw/                    # Original booking records
+├── src/                    # Python processing scripts & Jupyter Notebooks
+└── README.md
